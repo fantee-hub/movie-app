@@ -1,5 +1,6 @@
 const init = {
-  movieDetails: {},
+  movieDetails: { genres: [], production_companies: [] },
+  isLoaded: true,
 };
 
 const detailReducer = (state = init, action) => {
@@ -8,6 +9,12 @@ const detailReducer = (state = init, action) => {
       return {
         ...state,
         movieDetails: action.payload.details,
+        isLoaded: false,
+      };
+    case "LOAD_MOVIES":
+      return {
+        ...state,
+        isLoaded: true,
       };
     default:
       return {

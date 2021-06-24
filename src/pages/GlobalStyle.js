@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
         padding:0;
     }
     body{
-        background-color: #18122b;
+        background-color: #0c0c0c;
         font-family: 'Open Sans', sans-serif;
     }
     h2{

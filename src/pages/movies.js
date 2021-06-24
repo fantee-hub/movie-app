@@ -21,17 +21,24 @@ const Movies = ({ name, image, releaseDate, rating, id }) => {
 
   const getDetailHandler = () => {
     dispatch(loadDetail(id));
+    document.body.style.overflow = "hidden";
   };
+
+  const convertToString = id.toString();
 
   return (
     <Link to={`/game/${id}`}>
-      <Movie onClick={getDetailHandler}>
-        <img src={`${imageUrl()}${image}`} alt={name} />
-        <h2>{name}</h2>
-        <h3>
+      <Movie onClick={getDetailHandler} layoutId={convertToString}>
+        <motion.img
+          layoutId={`image ${convertToString}`}
+          src={`${imageUrl("w500")}${image}`}
+          alt={name}
+        />
+        <motion.h2 layoutId={`title ${convertToString}`}>{name}</motion.h2>
+        <motion.h3 layoutId={`rating ${convertToString}`}>
           Ratings:{" "}
           <span style={{ color: `${checkRatings(rating)}` }}>{rating}</span>
-        </h3>
+        </motion.h3>
         <p>Released : {releaseDate}</p>
       </Movie>
     </Link>
@@ -41,15 +48,14 @@ const Movies = ({ name, image, releaseDate, rating, id }) => {
 const Movie = styled(motion.div)`
   img {
     width: 100%;
-    height: 50vh;
+    height: 60vh;
     object-fit: cover;
   }
   background: linear-gradient(
     to right bottom,
-    rgba(54, 40, 94, 0.7),
-    rgba(255, 255, 255, 0.3)
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2)
   );
-
   backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
   border-radius: 1rem;
   overflow: hidden;

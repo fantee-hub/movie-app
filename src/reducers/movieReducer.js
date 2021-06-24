@@ -11,6 +11,7 @@ const movieReducer = (state = initial, action) => {
         popularMovies: action.payload.popular,
         movieInTheatre: action.payload.inTheatre,
       };
+
     default:
       return { ...state };
   }

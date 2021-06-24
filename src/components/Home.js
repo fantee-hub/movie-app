@@ -3,8 +3,10 @@ import { useDispatch } from "react-redux";
 import { loadMovies } from "../actions/movieAction";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { useLocation } from "react-router";
 import Movies from "../pages/movies";
+import MovieDetail from "../pages/MovieDetail";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -13,22 +15,30 @@ const Home = () => {
     dispatch(loadMovies());
   }, [dispatch]);
 
+  const location = useLocation();
+  const pathId = location.pathname.split("/")[2];
+
   return (
-    <MovieList>
-      <h1>Popular Movies</h1>
-      <MovieCards>
-        {popularMovies.map((movie) => (
-          <Movies
-            name={movie.title}
-            key={movie.id}
-            id={movie.id}
-            image={movie.backdrop_path}
-            releaseDate={movie.release_date}
-            rating={movie.vote_average}
-          />
-        ))}
-      </MovieCards>
-    </MovieList>
+    <AnimateSharedLayout type="crossfade">
+      <MovieList>
+        <AnimatePresence>
+          {pathId && <MovieDetail pathId={pathId} />}
+        </AnimatePresence>
+        <h1>Popular Movies</h1>
+        <MovieCards>
+          {popularMovies.map((movie) => (
+            <Movies
+              name={movie.title}
+              key={movie.id}
+              id={movie.id}
+              image={movie.poster_path}
+              releaseDate={movie.release_date}
+              rating={movie.vote_average}
+            />
+          ))}
+        </MovieCards>
+      </MovieList>
+    </AnimateSharedLayout>
   );
 };
 

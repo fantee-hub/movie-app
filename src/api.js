@@ -34,6 +34,6 @@ export const movieInTheatreUrl = () =>
   `${base_url}discover/movie?primary_release_date.gte=${fullDate}&primary_release_date.lte=${nextMonthDate}&api_key=${api_key}`;
 export const popularMoviesUrl = () =>
   `${base_url}discover/movie?sort_by=popularity.desc&api_key=${api_key}`;
-export const imageUrl = () => `https://image.tmdb.org/t/p/w500`;
+export const imageUrl = (size) => `https://image.tmdb.org/t/p/${size}`;
 export const movieDetailUrl = (movieId) =>
   `${base_url}movie/${movieId}?api_key=${api_key}`;
