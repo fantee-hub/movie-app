@@ -35,7 +35,11 @@ const MovieDetail = ({ pathId }) => {
             </motion.h1>
             <motion.img
               layoutId={`image ${pathId}`}
-              src={`${imageUrl("w780")}${movieDetails.backdrop_path}`}
+              src={`${imageUrl("w780")}${
+                !movieDetails.backdrop_path
+                  ? movieDetails.poster_path
+                  : movieDetails.backdrop_path
+              }`}
               alt=""
             />
             <MovieInfo>
@@ -90,6 +94,7 @@ const Card = styled(motion.div)`
   border-radius: 3rem;
   width: 60%;
   margin: 0 auto;
+  color: #131313;
   background: linear-gradient(
     to right bottom,
     rgba(255, 255, 255, 0.1),

@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
         background-color: #0c0c0c;
         font-family: 'Open Sans', sans-serif;
     }
+
     h2{
         color: #131313;
     }a{

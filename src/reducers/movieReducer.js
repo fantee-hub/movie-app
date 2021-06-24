@@ -1,6 +1,7 @@
 const initial = {
   popularMovies: [],
   movieInTheatre: [],
+  highRated: [],
 };
 
 const movieReducer = (state = initial, action) => {
@@ -10,6 +11,7 @@ const movieReducer = (state = initial, action) => {
         ...state,
         popularMovies: action.payload.popular,
         movieInTheatre: action.payload.inTheatre,
+        highRated: action.payload.highRated,
       };
 
     default:

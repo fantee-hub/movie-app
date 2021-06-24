@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loadDetail } from "../actions/detailAction";
 
-const Movies = ({ name, image, releaseDate, rating, id }) => {
+const Movies = ({ name, image, image_two, releaseDate, rating, id }) => {
   const checkRatings = (ratings) => {
     if (ratings >= 8) {
       return "green";
@@ -31,7 +31,7 @@ const Movies = ({ name, image, releaseDate, rating, id }) => {
       <Movie onClick={getDetailHandler} layoutId={convertToString}>
         <motion.img
           layoutId={`image ${convertToString}`}
-          src={`${imageUrl("w500")}${image}`}
+          src={`${imageUrl("w500")}${!image ? image_two : image}`}
           alt={name}
         />
         <motion.h2 layoutId={`title ${convertToString}`}>{name}</motion.h2>
@@ -39,7 +39,7 @@ const Movies = ({ name, image, releaseDate, rating, id }) => {
           Ratings:{" "}
           <span style={{ color: `${checkRatings(rating)}` }}>{rating}</span>
         </motion.h3>
-        <p>Released : {releaseDate}</p>
+        <h4>Release Date : {releaseDate}</h4>
       </Movie>
     </Link>
   );
@@ -73,8 +73,9 @@ const Movie = styled(motion.div)`
       border-radius: 0.5rem;
     }
   }
-  p {
-    padding: 0.3rem;
+
+  h4 {
+    padding: 0.5rem;
   }
 `;
 export default Movies;

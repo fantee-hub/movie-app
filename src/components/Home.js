@@ -10,7 +10,9 @@ import MovieDetail from "../pages/MovieDetail";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { popularMovies, movieInTheatre } = useSelector((state) => state.movie);
+  const { popularMovies, movieInTheatre, highRated } = useSelector(
+    (state) => state.movie
+  );
   useEffect(() => {
     dispatch(loadMovies());
   }, [dispatch]);
@@ -32,6 +34,21 @@ const Home = () => {
               key={movie.id}
               id={movie.id}
               image={movie.poster_path}
+              image_two={movie.backdrop_path}
+              releaseDate={movie.release_date}
+              rating={movie.vote_average}
+            />
+          ))}
+        </MovieCards>
+        <h1>Movies in Theatres</h1>
+        <MovieCards>
+          {movieInTheatre.map((movie) => (
+            <Movies
+              name={movie.title}
+              key={movie.id}
+              id={movie.id}
+              image={movie.poster_path}
+              image_two={movie.backdrop_path}
               releaseDate={movie.release_date}
               rating={movie.vote_average}
             />
@@ -47,7 +64,7 @@ const MovieList = styled(motion.div)`
   margin: 0 auto;
   padding: 5rem 0;
   h1 {
-    padding: 3rem 0rem;
+    padding: 2.5rem 0rem;
     font-size: 3rem;
     color: #cfcfcf;
   }
@@ -58,5 +75,6 @@ const MovieCards = styled(motion.div)`
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   grid-column-gap: 1.5rem;
   grid-row-gap: 3rem;
+  margin: 3rem 0rem;
 `;
 export default Home;
