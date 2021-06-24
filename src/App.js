@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
+
       <Route path={["/movie/:id", "/"]}>
         <Home />
       </Route>

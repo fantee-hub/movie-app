@@ -7,6 +7,8 @@ import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { useLocation } from "react-router";
 import Movies from "../pages/movies";
 import MovieDetail from "../pages/MovieDetail";
+import Header from "../pages/Header";
+import Nav from "../pages/Nav";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,8 @@ const Home = () => {
 
   return (
     <AnimateSharedLayout type="crossfade">
+      <Nav />
+      <Header />
       <MovieList>
         <AnimatePresence>
           {pathId && <MovieDetail pathId={pathId} />}
@@ -62,9 +66,9 @@ const Home = () => {
 const MovieList = styled(motion.div)`
   max-width: 90%;
   margin: 0 auto;
-  padding: 5rem 0;
+  padding: 3rem 0;
   h1 {
-    padding: 2.5rem 0rem;
+    padding: 3rem 0rem;
     font-size: 3rem;
     color: #cfcfcf;
   }
@@ -75,6 +79,6 @@ const MovieCards = styled(motion.div)`
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   grid-column-gap: 1.5rem;
   grid-row-gap: 3rem;
-  margin: 3rem 0rem;
+  margin: 2rem 0rem;
 `;
 export default Home;

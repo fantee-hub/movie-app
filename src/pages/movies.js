@@ -48,7 +48,7 @@ const Movies = ({ name, image, image_two, releaseDate, rating, id }) => {
 const Movie = styled(motion.div)`
   img {
     width: 100%;
-    height: 60vh;
+    height: 75vh;
     object-fit: cover;
   }
   background: linear-gradient(
