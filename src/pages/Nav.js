@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { searchMovies } from "../actions/movieAction";
 
 const Nav = () => {
@@ -39,7 +39,7 @@ const Nav = () => {
 };
 const NavBar = styled.nav`
   background: #2b2b2b;
-  padding: 1.5rem;
+  padding: 1rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -70,8 +70,8 @@ const Logo = styled.div`
   cursor: pointer;
   h1 {
     font-family: "Montserrat", cursive;
-    font-size: 2rem;
-    padding-right: 0.5rem;
+    font-size: 1.5rem;
+    padding-right: 0.4rem;
     color: #b3b3b3;
     span {
       color: #00e700;
@@ -82,9 +82,9 @@ const Logo = styled.div`
       font-size: 1.5rem;
     }
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 400px) {
     h1 {
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
   }
 `;

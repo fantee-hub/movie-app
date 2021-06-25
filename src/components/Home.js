@@ -107,7 +107,7 @@ const MovieCards = styled(motion.div)`
   grid-column-gap: 1.5rem;
   grid-row-gap: 3rem;
   margin: 2rem 0rem;
-  @media screen and (max-width: 460px) {
+  @media screen and (max-width: 700px) {
     grid-template-columns: 1fr;
   }
 `;

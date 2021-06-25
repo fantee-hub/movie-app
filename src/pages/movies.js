@@ -53,10 +53,10 @@ const Movie = styled(motion.div)`
   }
   background: linear-gradient(
     to right bottom,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.2)
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
   );
-  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  backdrop-filter: blur(40px) saturate(100%) contrast(25%) brightness(130%);
   border-radius: 1rem;
   overflow: hidden;
   text-align: center;

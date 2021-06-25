@@ -48,7 +48,10 @@ const Head = styled.div`
       font-size: 1.6rem;
     }
   }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 799px) {
+    display: block;
+  }
+  @media screen and (max-width: 1080px) and (min-width: 800px) {
     display: block;
   }
 `;
