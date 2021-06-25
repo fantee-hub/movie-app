@@ -12,7 +12,7 @@ import Nav from "../pages/Nav";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { popularMovies, movieInTheatre, highRated, searched } = useSelector(
+  const { popularMovies, movieInTheatre, searched } = useSelector(
     (state) => state.movie
   );
   useEffect(() => {

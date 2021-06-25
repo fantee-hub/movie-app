@@ -1,5 +1,4 @@
 const base_url = "https://api.themoviedb.org/3/";
-const api_key = "8bb37e5168954fe65a7f4116d02971d1";
 
 const getMonth = () => {
   const month = new Date().getMonth() + 1;
@@ -31,13 +30,13 @@ const fullDate = `${year}-${month}-${date}`;
 const nextMonthDate = `${year}-${nextMonth}-${date}`;
 
 export const movieInTheatreUrl = () =>
-  `${base_url}discover/movie?primary_release_date.gte=${fullDate}&primary_release_date.lte=${nextMonthDate}&api_key=${api_key}`;
+  `${base_url}discover/movie?primary_release_date.gte=${fullDate}&primary_release_date.lte=${nextMonthDate}&api_key=${process.env.REACT_APP_MOVIE}`;
 export const popularMoviesUrl = () =>
-  `${base_url}discover/movie?sort_by=popularity.desc&api_key=${api_key}`;
+  `${base_url}discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_MOVIE}`;
 export const highestRatedUrl = () =>
-  `${base_url}discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&api_key=${api_key}&page=2`;
+  `${base_url}discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&api_key=${process.env.REACT_APP_MOVIE}&page=2`;
 export const imageUrl = (size) => `https://image.tmdb.org/t/p/${size}`;
 export const movieDetailUrl = (movieId) =>
-  `${base_url}movie/${movieId}?api_key=${api_key}`;
+  `${base_url}movie/${movieId}?api_key=${process.env.REACT_APP_MOVIE}`;
 export const searchUrl = (searchInput) =>
-  `${base_url}search/movie?api_key=${api_key}&query=${searchInput}`;
+  `${base_url}search/movie?api_key=${process.env.REACT_APP_MOVIE}&query=${searchInput}`;

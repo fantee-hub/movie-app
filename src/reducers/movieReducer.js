@@ -1,7 +1,7 @@
 const initial = {
   popularMovies: [],
   movieInTheatre: [],
-  highRated: [],
+  // highRated: [],
   searched: [],
 };
 
