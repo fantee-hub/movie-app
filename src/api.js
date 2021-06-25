@@ -39,3 +39,5 @@ export const highestRatedUrl = () =>
 export const imageUrl = (size) => `https://image.tmdb.org/t/p/${size}`;
 export const movieDetailUrl = (movieId) =>
   `${base_url}movie/${movieId}?api_key=${api_key}`;
+export const searchUrl = (searchInput) =>
+  `${base_url}search/movie?api_key=${api_key}&query=${searchInput}`;

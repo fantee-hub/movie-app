@@ -1,5 +1,10 @@
 import axios from "axios";
-import { popularMoviesUrl, movieInTheatreUrl, highestRatedUrl } from "../api";
+import {
+  popularMoviesUrl,
+  movieInTheatreUrl,
+  highestRatedUrl,
+  searchUrl,
+} from "../api";
 
 export const loadMovies = () => async (dispatch) => {
   const popularMovies = await axios.get(popularMoviesUrl());
@@ -12,6 +17,16 @@ export const loadMovies = () => async (dispatch) => {
       popular: popularMovies.data.results,
       inTheatre: moviesinTheatre.data.results,
       highRated: highestRated.data.results,
+    },
+  });
+};
+export const searchMovies = (searchInput) => async (dispatch) => {
+  const searchedMovie = await axios.get(searchUrl(searchInput));
+
+  dispatch({
+    type: "SEARCH_MOVIES",
+    payload: {
+      searched: searchedMovie.data.results,
     },
   });
 };

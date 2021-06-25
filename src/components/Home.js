@@ -12,7 +12,7 @@ import Nav from "../pages/Nav";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { popularMovies, movieInTheatre, highRated } = useSelector(
+  const { popularMovies, movieInTheatre, highRated, searched } = useSelector(
     (state) => state.movie
   );
   useEffect(() => {
@@ -30,6 +30,24 @@ const Home = () => {
         <AnimatePresence>
           {pathId && <MovieDetail pathId={pathId} />}
         </AnimatePresence>
+        {searched.length && (
+          <div className="searched">
+            <h1>Searched Movies</h1>
+            <MovieCards>
+              {searched.map((movie) => (
+                <Movies
+                  name={movie.title}
+                  key={movie.id}
+                  id={movie.id}
+                  image={movie.poster_path}
+                  image_two={movie.backdrop_path}
+                  releaseDate={movie.release_date}
+                  rating={movie.vote_average}
+                />
+              ))}
+            </MovieCards>
+          </div>
+        )}
         <h1>Popular Movies</h1>
         <MovieCards>
           {popularMovies.map((movie) => (

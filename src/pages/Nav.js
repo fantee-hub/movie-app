@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { searchMovies } from "../actions/movieAction";
 
 const Nav = () => {
+  const [input, setInput] = useState("");
+  const dispatch = useDispatch();
+
+  const getInputData = (e) => {
+    setInput(e.target.value);
+  };
+  const submitForm = (e) => {
+    e.preventDefault();
+    setInput("");
+    dispatch(searchMovies(input));
+  };
+
   return (
     <NavBar>
-      <form>
-        <input type="search" placeholder="search movies here..." />
+      <form onSubmit={submitForm}>
+        <input
+          type="text"
+          placeholder="search movies here..."
+          onChange={getInputData}
+          value={input}
+        />
       </form>
     </NavBar>
   );
