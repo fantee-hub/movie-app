@@ -30,6 +30,7 @@ const Head = styled.div`
   p {
     font-size: 1.3rem;
     line-height: 2;
+    max-width: 44rem;
   }
   h1 {
     font-size: 3rem;
@@ -39,8 +40,6 @@ const Head = styled.div`
     }
   }
   @media screen and (max-width: 500px) {
-    display: block;
-
     p {
       font-size: 0.8rem;
       padding-top: 2rem;
@@ -48,6 +47,9 @@ const Head = styled.div`
     h1 {
       font-size: 1.6rem;
     }
+  }
+  @media screen and (max-width: 800px) {
+    display: block;
   }
 `;
 

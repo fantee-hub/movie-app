@@ -145,7 +145,9 @@ const MovieInfo = styled(motion.div)`
       }
     }
   }
-
+  a {
+    color: #341fec;
+  }
   p {
     font-size: 1.5rem;
     padding: 2rem 0rem;
@@ -154,7 +156,7 @@ const MovieInfo = styled(motion.div)`
   }
   @media screen and (max-width: 700px) {
     p {
-      font-size: 1rem;
+      font-size: 1.1rem;
       padding: 1rem 0rem;
     }
     .genre {
@@ -171,8 +173,11 @@ const MovieInfo = styled(motion.div)`
       }
     }
   }
-  @media screen and (max-width: 390px) {
+  @media screen and (max-width: 404px) {
     .genre {
+      p {
+        font-size: 1rem;
+      }
       .genres {
         h3 {
           font-size: 0.9rem;

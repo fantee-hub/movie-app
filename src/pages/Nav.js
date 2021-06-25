@@ -58,7 +58,7 @@ const NavBar = styled.nav`
     }
   }
   @media screen and (max-width: 500px) {
-    padding: 1rem;
+    padding: 0.8rem;
     input {
       font-size: 0.8rem;
       padding: 0.6rem 1rem;
@@ -71,14 +71,20 @@ const Logo = styled.div`
   h1 {
     font-family: "Montserrat", cursive;
     font-size: 2rem;
+    padding-right: 0.5rem;
     color: #b3b3b3;
     span {
       color: #00e700;
     }
   }
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 900px) and (min-width: 800px) {
     h1 {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    h1 {
+      font-size: 1.1rem;
     }
   }
 `;
