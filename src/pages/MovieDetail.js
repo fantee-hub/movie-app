@@ -101,10 +101,13 @@ const Card = styled(motion.div)`
   width: 60%;
   margin: 0 auto;
   color: #131313;
+  h1 {
+    color: #131313 !important;
+  }
   background: linear-gradient(
     to right bottom,
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0.3)
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.7)
   );
   backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
   img {
@@ -112,9 +115,7 @@ const Card = styled(motion.div)`
     height: 60vh;
     object-fit: cover;
   }
-  h1 {
-    color: #000000;
-  }
+
   .rating {
     span {
       background: #0c0c0c;
