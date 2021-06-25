@@ -45,7 +45,7 @@ const NavBar = styled.nav`
   justify-content: space-between;
   align-items: center;
   input {
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     border: 1px solid #1b1b1b;
     border-radius: 2rem;
     background: transparent;
@@ -53,15 +53,17 @@ const NavBar = styled.nav`
     font-family: "Poppins", sans-serif;
     font-size: 1.2rem;
     color: white;
+
     &:focus {
       outline: none;
     }
   }
   @media screen and (max-width: 500px) {
     padding: 0.8rem;
+
     input {
       font-size: 0.8rem;
-      padding: 0.6rem 1rem;
+      padding: 0.6rem 0.8rem;
     }
   }
 `;
@@ -82,7 +84,7 @@ const Logo = styled.div`
       font-size: 1.5rem;
     }
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 500px) {
     h1 {
       font-size: 1rem;
     }
