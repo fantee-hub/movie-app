@@ -8,7 +8,9 @@ const GlobalStyle = createGlobalStyle`
     }
     body{
         background-color: #0c0c0c;
-        font-family: 'Open Sans', sans-serif;
+        width:100%;
+        font-family: 'Poppins', sans-serif;
+       
     }
 
     h2{

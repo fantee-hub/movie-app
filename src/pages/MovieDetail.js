@@ -3,11 +3,15 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { imageUrl } from "../api";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
 
 const MovieDetail = ({ pathId }) => {
   const { movieDetails, isLoaded } = useSelector((state) => state.detail);
   const history = useHistory();
+  const location = useLocation();
+  if (location.pathname === "/") {
+    document.body.style.overflow = "auto";
+  }
   const checkRatings = (ratings) => {
     if (ratings >= 8) {
       return "green";
@@ -56,9 +60,11 @@ const MovieDetail = ({ pathId }) => {
                     </span>{" "}
                   </h2>
                 </div>
-                {movieDetails.genres.map((genre) => (
-                  <h2 key={genre.id}>{genre.name}</h2>
-                ))}
+                <div className="genres">
+                  {movieDetails.genres.map((genre) => (
+                    <h3 key={genre.id}>{genre.name}</h3>
+                  ))}
+                </div>
               </div>
               <p>{movieDetails.overview}</p>
               <a href={movieDetails.homepage}> visit homepage</a>
@@ -86,7 +92,7 @@ const CardShadow = styled(motion.div)`
     background: #f1f1f1;
   }
   &::-webkit-scrollbar-thumb {
-    background: #251463;
+    background: #414141;
   }
 `;
 const Card = styled(motion.div)`
@@ -109,12 +115,35 @@ const Card = styled(motion.div)`
   h1 {
     color: #000000;
   }
+  .rating {
+    span {
+      background: #0c0c0c;
+      padding: 0.3rem;
+      border-radius: 0.4rem;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    width: 95%;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  @media screen and (max-width: 1024px) and (min-width: 700px) {
+    width: 80%;
+    padding: 1.4rem;
+  }
 `;
 const MovieInfo = styled(motion.div)`
   .genre {
     padding: 1rem 0rem;
     display: flex;
     justify-content: space-between;
+    .genres {
+      display: flex;
+
+      h3 {
+        margin-right: 1rem;
+      }
+    }
   }
 
   p {
@@ -122,6 +151,34 @@ const MovieInfo = styled(motion.div)`
     padding: 2rem 0rem;
 
     line-height: 2;
+  }
+  @media screen and (max-width: 700px) {
+    p {
+      font-size: 1rem;
+      padding: 1rem 0rem;
+    }
+    .genre {
+      display: block;
+      .genres {
+        display: flex;
+
+        h3 {
+          margin-right: 1rem;
+        }
+      }
+      .rating {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  @media screen and (max-width: 390px) {
+    .genre {
+      .genres {
+        h3 {
+          font-size: 0.9rem;
+        }
+      }
+    }
   }
 `;
 

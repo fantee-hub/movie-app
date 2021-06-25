@@ -68,7 +68,7 @@ const Movie = styled(motion.div)`
   h3 {
     padding: 0.3rem;
     span {
-      background: #18122b;
+      background: #0c0c0c;
       padding: 0.3rem;
       border-radius: 0.5rem;
     }
@@ -76,6 +76,22 @@ const Movie = styled(motion.div)`
 
   h4 {
     padding: 0.5rem;
+  }
+  @media screen and (max-width: 500px) {
+    img {
+      height: 50vh;
+      width: 100%;
+      object-fit: cover;
+    }
+    h2 {
+      padding: 0.2rem;
+    }
+    h3 {
+      padding: 0.2rem;
+    }
+    h4 {
+      padding: 0.2rem;
+    }
   }
 `;
 export default Movies;

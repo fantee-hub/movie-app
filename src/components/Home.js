@@ -30,7 +30,7 @@ const Home = () => {
         <AnimatePresence>
           {pathId && <MovieDetail pathId={pathId} />}
         </AnimatePresence>
-        {searched.length && (
+        {searched.length ? (
           <div className="searched">
             <h1>Searched Movies</h1>
             <MovieCards>
@@ -47,6 +47,8 @@ const Home = () => {
               ))}
             </MovieCards>
           </div>
+        ) : (
+          ""
         )}
         <h1>Popular Movies</h1>
         <MovieCards>
@@ -82,13 +84,20 @@ const Home = () => {
 };
 
 const MovieList = styled(motion.div)`
-  max-width: 90%;
+  width: 90%;
   margin: 0 auto;
   padding: 3rem 0;
   h1 {
     padding: 3rem 0rem;
     font-size: 3rem;
     color: #cfcfcf;
+  }
+  @media screen and (max-width: 500px) {
+    padding: 1.5rem 0;
+    h1 {
+      font-size: 1.5rem;
+      padding: 1rem 0;
+    }
   }
 `;
 const MovieCards = styled(motion.div)`
@@ -98,5 +107,8 @@ const MovieCards = styled(motion.div)`
   grid-column-gap: 1.5rem;
   grid-row-gap: 3rem;
   margin: 2rem 0rem;
+  @media screen and (max-width: 460px) {
+    grid-template-columns: 1fr;
+  }
 `;
 export default Home;
