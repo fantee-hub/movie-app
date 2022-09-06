@@ -21,6 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "dev": "env-cmd -f ./config/dev.env",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
